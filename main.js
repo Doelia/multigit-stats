@@ -61,6 +61,7 @@ class MultiGitStats {
 
 var multiGitStats = new MultiGitStats();
 multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/learning/dactylo');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/learning/multigit-stats');
 multiGitStats.buildLogs(function() {
     console.log(this.commits);
 });
