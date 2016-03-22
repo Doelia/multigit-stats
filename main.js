@@ -80,16 +80,14 @@ class LogAnalyser {
     showProjects(commits) {
         for (var i in commits) {
             var c = commits[i];
-            console.log(c.authorDate+" - "+c.repo);
+            console.log(c.authorDate+" - "+c.repo+" - "+c.subject);
         }
     }
 
-    getCommitsOnDate(day, month, year) {
+    getCommitsOnDate(min, max) {
+        console.log('Searched date : '+min+' and '+max);
+
         var commits = [];
-        var min = new Date(year, month, day);
-        console.log('Searched date : '+min);
-        var max = new Date(min);
-        max.setDate(max.getDate() + 1);
 
         for (var i in this.commits) {
             var c = this.commits[i];
@@ -106,12 +104,26 @@ class LogAnalyser {
 }
 
 var multiGitStats = new MultiGitStats();
+
 multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/learning/dactylo');
 multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/learning/multigit-stats');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v2/predict');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/axa');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/groupama');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-commun');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-geo');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-lames');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-risques');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-users');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-vigie');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/risques-interface');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/i-admin');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/naski/naski');
+
 multiGitStats.buildLogs(function() {
     var logAnalyser = new LogAnalyser(this.commits);
-    //logAnalyser.show();
-    var commits = logAnalyser.getCommitsOnDate(22, 2, 2016);
+    var commits = logAnalyser.getCommitsOnDate(new Date('2016-02-22'), new Date('2016-02-27'));
     logAnalyser.showProjects(commits);
 });
+
 setTimeout(function() {}, 2000);
