@@ -110,20 +110,20 @@ multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/learning/multigit-stats
 multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v2/predict');
 multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/axa');
 multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/groupama');
-multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-commun');
-multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-geo');
-multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-lames');
-multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-risques');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-common');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-niveaux');
 multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-users');
-multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-mf');
-multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-vigie');
-multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/risques-interface');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-hydrometeo');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-carto');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-previ');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-lames');
+multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/m-geoloc');
 multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/v3/i-admin');
 multiGitStats.recordGitRepo('/Users/doelia/Documents/dev/psol/naski/naski');
 
 multiGitStats.buildLogs(function() {
     var logAnalyser = new LogAnalyser(this.commits);
-    var commits = logAnalyser.getCommitsOnDate(new Date('2016-03-28'), new Date('2016-04-02'));
+    var commits = logAnalyser.getCommitsOnDate(new Date('2016-04-17'), new Date('2016-04-23'));
     logAnalyser.showProjects(commits);
 });
 
